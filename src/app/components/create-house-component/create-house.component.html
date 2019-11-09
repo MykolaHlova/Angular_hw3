@@ -1,0 +1,37 @@
+<form (ngSubmit)="regToHouse()" #houseReg="ngForm">
+  <input
+    type="text"
+    placeholder="city"
+    [(ngModel)]="createHouse.city"
+    #cityInput="ngModel"
+    required>
+
+  <label [ngStyle]="{ color: cityInput.invalid ? 'IndianRed' : 'black'}"> : City </label>
+
+  <input
+    type="text"
+    placeholder="street"
+    [(ngModel)]="createHouse.street"
+    #streetInput="ngModel"
+    required>
+
+  <label [ngStyle]="{ color: streetInput.invalid ? 'IndianRed' : 'black'}"> : Street </label>
+
+  <input
+    type="text"
+    placeholder="price"
+    [(ngModel)]="createHouse.price"
+    #priceInput="ngModel"
+    required>
+
+  <label [ngStyle]="{ color: priceInput.invalid ? 'IndianRed' : 'black'}"> : Price </label>
+
+  <br>
+
+  <button
+    [disabled]="!houseReg.valid"
+    appHoverizer>
+    Submit
+  </button>
+
+</form>

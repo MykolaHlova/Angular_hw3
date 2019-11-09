@@ -1,0 +1,33 @@
+<form (ngSubmit)="registerUser()" #regUser="ngForm">
+  <input
+    type="text"
+    name="name"
+    placeholder="name"
+    [(ngModel)]="createUser.name"
+    #nameInput="ngModel"
+    required>
+  <label [ngStyle]=" {color: nameInput.invalid ? 'IndianRed' : 'black'} "> : Name </label>
+
+  <input
+    type="email"
+    name="email"
+    placeholder="email"
+    [(ngModel)]="createUser.email"
+    #emailInput="ngModel"
+    required>
+  <label [ngStyle]=" {color: emailInput.invalid ? 'IndianRed' : 'black'} "> : Email </label>
+
+  <input
+    type="password"
+    name="password"
+    placeholder="password"
+    [(ngModel)]="createUser.password"
+    #passwordInput="ngModel"
+    required
+    minlength="5">
+  <label [ngStyle]=" {color: passwordInput.invalid ? 'IndianRed' : 'black'} "> : Password </label>
+
+  <br>
+
+  <button [disabled]="!regUser.valid" appHoverizer> Submit</button>
+</form>

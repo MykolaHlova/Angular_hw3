@@ -1,0 +1,13 @@
+<div [ngStyle]="{borderColor: house.owner.isBlocked ? 'indianred': 'black'}" >
+  City: {{house.city}}
+  <br>
+  Price: {{house.price | currency: cursUSD }}, {{house.price}}UAH
+  <br>
+  <div *ngIf="showedHouseIndex === house.id && showedMinInfo">
+    Street: {{house.street}}
+    <br>
+    Owner: {{house.owner.name}} {{house.owner.surname}}
+  </div>
+  <button (click)="showFull(house.id)" appHoverizer>show full info</button>
+  <br>
+</div>

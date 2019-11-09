@@ -1,0 +1,27 @@
+<form (ngSubmit)="loginUser()" #logUser="ngForm">
+  <input
+    type="email"
+    name="email"
+    placeholder="email"
+    [(ngModel)]="auth.email"
+    #emailInput="ngModel">
+  <label [ngStyle]="{color: emailInput.invalid ? 'IndianRed' : 'black'}"> : Email </label>
+
+  <br>
+
+  <input
+    type="password"
+    name="password"
+    placeholder="password"
+    [(ngModel)]="auth.password"
+    #passwordInput="ngModel">
+  <label [ngStyle]="{color: passwordInput.invalid ? 'IndianRed' : 'black'}"> : Password </label>
+
+  <br>
+
+  <button
+    [disabled]="!logUser.valid"
+    appHoverizer>
+    Submit
+  </button>
+</form>

@@ -1,0 +1,51 @@
+<div class="auth">
+
+<button type="submit" (click)="register()" appHoverizer> REGISTER </button>
+<button type="submit" (click)="login()" appHoverizer> LOGIN </button>
+<button type="submit" (click)="addHouse()" appHoverizer> Create House </button>
+
+
+<br>
+
+<app-register-component
+*ngIf="isRegClick"
+[createUser]="createUser"
+(userToReg)="registerUser($event)"
+></app-register-component>
+
+<app-login-component
+*ngIf="isLogClick"
+[auth]="auth"
+(userToLog)="loginUser($event)"
+></app-login-component>
+
+<app-create-house
+  *ngIf="isHouseClick"
+  [createHouse]="createHouse"
+  (houseToCreate)="regToHouse($event)">
+</app-create-house>
+
+</div>
+<hr>
+<br>
+
+<div class="search">
+  <input type="text" (input)="onInput($event)">
+  <button (click)="value()" appHoverizer >Search</button>
+  <br>
+  {{searchValue}}
+</div>
+
+<hr>
+<br>
+
+<app-show-full-info-house-component
+  *ngFor="let house of houses"
+  [house]="house"
+></app-show-full-info-house-component>
+
+
+
+
+
+
